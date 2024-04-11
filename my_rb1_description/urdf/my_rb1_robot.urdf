@@ -1,6 +1,23 @@
 <?xml version="1.0" ?>
 
 <robot name="RB1">
+
+    <gazebo reference="base_link">
+        <material>Gazebo/Black</material>
+    </gazebo>
+    <gazebo reference="link_Wheel1">
+        <material>Gazebo/Grey</material>
+    </gazebo>
+    <gazebo reference="link_Wheel2">
+        <material>Gazebo/Grey</material>
+    </gazebo>
+    <gazebo reference="link_front_caster_wheel">
+        <material>Gazebo/Black</material>
+    </gazebo>
+    <gazebo reference="link_back_caster_wheel">
+        <material>Gazebo/Black</material>
+    </gazebo>
+    
     <!-- Link - base_link -->
     <link name="base_link">
         <inertial>
@@ -19,9 +36,6 @@
             <geometry>
                 <cylinder length="0.3" radius="0.25" />
             </geometry>
-        <material name="DarkBlue">
-            <color rgba="0.2 0.2 0.4 1" />
-        </material>
         </visual>
 
     </link>
@@ -94,13 +108,13 @@
 <!-- Joint - front_caster wheel -->
 <joint name="front__caster_wheel" type="fixed">
         <origin rpy="0 0 0" xyz="0.1 0 -0.15" />
-        <child link="front_caster_wheel" />
+        <child link="link_front_caster_wheel" />
         <parent link="base_link" />
         <joint_properties damping="1.0" friction="0" />
 </joint>
 
 <!-- Link - front_caster wheel -->
-<link name="front_caster_wheel">
+<link name="link_front_caster_wheel">
         <inertial>
             <mass value="1" />
             <origin xyz="0 0 0" rpy="0 0 0" />
@@ -118,9 +132,6 @@
             <geometry>
                 <sphere radius="0.025" />
             </geometry>
-            <material name="DarkBlue">
-                <color rgba="0.2 0.2 0.4 1" />
-            </material>
         </visual>
         <!-- Caster wheel -->
         <collision>
@@ -134,22 +145,19 @@
             <geometry>
                 <sphere radius="0.010" />
             </geometry>
-            <material name="Grey">
-                <color rgba="0.6 0.6 0.6 1" />
-            </material>
         </visual>
 </link>
 
 <!-- Joint - back_caster wheel -->
 <joint name="back__caster_wheel" type="fixed">
         <origin rpy="0 0 0" xyz="-0.1 0 -0.15" />
-        <child link="back_caster_wheel" />
+        <child link="link_back_caster_wheel" />
         <parent link="base_link" />
         <joint_properties damping="1.0" friction="0" />
 </joint>
 
 <!-- Link - back_caster wheel -->
-<link name="back_caster_wheel">
+<link name="link_back_caster_wheel">
         <inertial>
             <mass value="1" />
             <origin xyz="0 0 0" rpy="0 0 0" />
@@ -167,9 +175,6 @@
             <geometry>
                 <sphere radius="0.025" />
             </geometry>
-            <material name="DarkBlue">
-                <color rgba="0.2 0.2 0.4 1" />
-            </material>
         </visual>
         <!-- Caster wheel -->
         <collision>
@@ -183,9 +188,6 @@
             <geometry>
                 <sphere radius="0.010" />
             </geometry>
-            <material name="Grey">
-                <color rgba="0.6 0.6 0.6 1" />
-            </material>
         </visual>
 </link>
 
